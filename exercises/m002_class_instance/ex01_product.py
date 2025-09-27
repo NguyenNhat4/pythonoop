@@ -21,13 +21,15 @@ from typing import Dict
 class Product:
     def __init__(self, name: str, price: int) -> None:
         # write your code below
-        raise NotImplementedError
         # write your code above
+        raise NotImplementedError
+        
 
     def to_dict(self) -> Dict[str, int | str]:
         # write your code below
-        raise NotImplementedError
         # write your code above
+        raise NotImplementedError
+        
 
 
 if __name__ == "__main__":
