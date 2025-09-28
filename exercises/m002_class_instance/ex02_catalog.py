@@ -1,5 +1,5 @@
 """
-Bài 02 (dễ) - Danh mục sản phẩm (Catalog)
+Bài 02 - Danh mục sản phẩm (Catalog)
 Mục tiêu: Dùng class quản lý nhiều Product bằng dictionary.
 Ngữ cảnh: Tạo danh mục sản phẩm của cửa hàng.
 

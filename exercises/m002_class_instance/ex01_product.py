@@ -1,5 +1,5 @@
 """
-Bài 01 (rất dễ) - Sản phẩm trong cửa hàng (Product)
+Bài 01 - Sản phẩm trong cửa hàng (Product)
 Mục tiêu: Làm quen với class & instance, thuộc tính cơ bản.
 Ngữ cảnh: Lưu thông tin một sản phẩm đơn giản.
 

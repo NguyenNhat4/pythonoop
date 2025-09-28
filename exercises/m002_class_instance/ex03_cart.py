@@ -1,5 +1,5 @@
 """
-Bài 03 (dễ-vừa) - Giỏ hàng cơ bản (Cart)
+Bài 03 - Giỏ hàng cơ bản (Cart)
 Mục tiêu: Dùng class chứa state, thao tác với Product.
 Ngữ cảnh: Thêm sản phẩm vào giỏ và xem tổng tiền.
 

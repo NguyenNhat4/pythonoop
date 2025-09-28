@@ -1,5 +1,5 @@
 """
-Bài 06 (vừa-khá) - Mã giảm giá (Discount)
+Bài 06 - Mã giảm giá (Discount)
 Mục tiêu: Áp dụng giảm giá cho giỏ hàng/đơn hàng.
 Ngữ cảnh: Có các mã giảm theo % hoặc theo số tiền cố định.
 

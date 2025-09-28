@@ -1,5 +1,5 @@
 """
-Bài 10 (khó) - Loyalty Pipeline: mua hàng -> tích điểm -> áp mã giảm -> xuất hoá đơn
+Bài 10 - Loyalty Pipeline: mua hàng -> tích điểm -> áp mã giảm -> xuất hoá đơn
 Mục tiêu: Kết hợp nhiều class và luồng xử lý.
 Ngữ cảnh: Khi khách mua hàng, cửa hàng tính điểm thưởng, áp mã giảm và in hóa đơn.
 

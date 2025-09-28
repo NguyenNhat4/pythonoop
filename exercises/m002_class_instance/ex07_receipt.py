@@ -1,5 +1,5 @@
 """
-Bài 07 (khá) - Hóa đơn (Receipt) từ Order
+Bài 07 - Hóa đơn (Receipt) từ Order
 Mục tiêu: Tổng hợp dữ liệu từ Order để xuất hóa đơn.
 Ngữ cảnh: In hóa đơn với các dòng hàng, thuế, giảm giá.
 

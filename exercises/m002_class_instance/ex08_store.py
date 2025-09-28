@@ -1,5 +1,5 @@
 """
-Bài 08 (khá) - Cửa hàng (Store) quản lý Catalog, Customer và Order
+Bài 08 - Cửa hàng (Store) quản lý Catalog, Customer và Order
 Mục tiêu: Phối hợp nhiều class; điều phối luồng thêm sản phẩm, mua hàng, tích điểm.
 Ngữ cảnh: Mô phỏng cửa hàng nhỏ.
 

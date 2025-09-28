@@ -1,5 +1,5 @@
 """
-Bài 05 (vừa) - Khách hàng (Customer) và điểm tích luỹ
+Bài 05 - Khách hàng (Customer) và điểm tích luỹ
 Mục tiêu: Quản lý thông tin khách và tích luỹ điểm.
 Ngữ cảnh: Mỗi lần mua hàng, khách được cộng điểm.
 

@@ -1,5 +1,5 @@
 """
-Bài 09 (khá-nâng cao) - Kiểm kê kho (Inventory) theo lô nhập/xuất
+Bài 09 - Kiểm kê kho (Inventory) theo lô nhập/xuất
 Mục tiêu: Quản lý tồn kho chi tiết hơn với nhiều lệnh.
 Ngữ cảnh: Cập nhật kho khi nhập hàng và khi khách mua.
 

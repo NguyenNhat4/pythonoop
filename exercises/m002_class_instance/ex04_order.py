@@ -1,5 +1,5 @@
 """
-Bài 04 (vừa) - Đơn hàng (Order) và dòng hàng (OrderItem)
+Bài 04 - Đơn hàng (Order) và dòng hàng (OrderItem)
 Mục tiêu: Tổ chức object có quan hệ has-a; validation cơ bản.
 Ngữ cảnh: Tạo đơn hàng từ giỏ hàng với số lượng cụ thể.
 
