@@ -23,7 +23,7 @@ from typing import Dict
 class Product:
     def __init__(self, name: str, price: int) -> None:
         self._name = name
-        self._price = price
+        self._price = price 
 
 
 class Catalog:
@@ -35,27 +35,29 @@ class Catalog:
 
     def get(self, name: str) -> Product | None:
         return self._items.get(name)
-
+        
+    def to_dict(self) -> Dict[str, Product]:
+        return {name: product.to_dict() for name, product in self._items.items()}
 
 class Cart:
     def __init__(self) -> None:
         # write your code below
-        raise NotImplementedError
+        self._items: Dict[str, Product] = {}
         # write your code above
 
     def add(self, product: Product, qty: int) -> None:
         # write your code below
-        raise NotImplementedError
+        self._items[product._name] = product
         # write your code above
 
     def remove(self, name: str, qty: int) -> None:
         # write your code below
-        raise NotImplementedError
+        self._items[name] -= qty
         # write your code above
 
     def total(self, catalog: Catalog) -> int:
         # write your code below
-        raise NotImplementedError
+        return sum(product.price * qty for product, qty in self._items.items())
         # write your code above
 
 

@@ -17,7 +17,6 @@ Yêu cầu I/O (tự viết main):
   + Với "get": in dict sản phẩm hoặc None
   + Với "dump": in dict toàn bộ danh mục
 """
-from __future__ import annotations
 from typing import Dict, Optional
 
 
