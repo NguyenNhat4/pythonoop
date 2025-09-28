@@ -1,1 +1,0 @@
-# m004: inheritance
