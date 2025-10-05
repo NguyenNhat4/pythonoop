@@ -11,14 +11,6 @@ except FileNotFoundError as e:
     print(f" Lỗi: {e}")
     print(" Giải pháp: Kiểm tra file tồn tại trước khi đọc")
 
-# Lỗi 2: Không có quyền ghi
-# print("\n[Lỗi 2] Ghi vào thư mục không có quyền:")
-# try:
-#     with open('/root/test.txt', 'w', encoding='utf-8') as f:
-#         f.write("test")
-# except PermissionError as e:
-#     print(f" Lỗi: {e}")
-#     print(" Giải pháp: Ghi vào thư mục có quyền (như thư mục hiện tại)")
 
 # Lỗi 3: Parse sai format
 print("\n[Lỗi 3] Parse data sai format:")
