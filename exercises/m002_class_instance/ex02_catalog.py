@@ -35,7 +35,6 @@ class Catalog:
             return None
         if product_price <= 0:
             return None
-        
         self.__items[product_name] = product
         
 
@@ -69,6 +68,40 @@ class Catalog:
           pmd[i] = j.to_dict()
         return pmd  
 
+    # def update_price(self, name: str, new_price: int) -> bool:
+    # """
+    # Cập nhật giá sản phẩm
+    # Return True nếu thành công, False nếu:
+    # - Sản phẩm không tồn tại
+    # - Giá mới <= 0
+    # """
+    # def remove(self, name: str) -> bool:
+    # """
+    # Xóa sản phẩm khỏi catalog
+    # Return True nếu xóa thành công
+    # Return False nếu sản phẩm không tồn tại
+    # """
+    # def count(self) -> int:
+    # """Đếm tổng số sản phẩm trong catalog"""
+    # def get_all_names(self) -> List[str]:
+    # """
+    # Lấy danh sách tên tất cả sản phẩm
+    # Return: ['hair spray', 'iphone', 'samsung']
+    # """
+    # def get_total_value(self) -> int:
+    # """
+    # Tính tổng giá trị tất cả sản phẩm trong catalog
+    # Ví dụ: có 3 sản phẩm giá 100, 200, 300 → return 600
+    # """
+    # def get_cheapest(self) -> Optional[Product]:
+    # """Tìm sản phẩm rẻ nhất"""
+    # # Gợi ý: dùng min() với key
+    
+    # def get_most_expensive(self) -> Optional[Product]:
+    # """Tìm sản phẩm đắt nhất"""
+    # def sort_by_price(self, ascending: bool = True) -> List[Dict[str, int | str]]:
+    # """Sắp xếp sản phẩm theo giá"""
+    # def  sort_by(field: str, ascending: bool = True) -> List[Dict[str, int | str]]:
 
 
 
