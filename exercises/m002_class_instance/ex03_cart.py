@@ -37,7 +37,6 @@ class Cart:
         # write your code below
         # write your code above
 
-
 if __name__ == "__main__":
  
     # Tự viết main theo yêu cầu I/O bên trên.
