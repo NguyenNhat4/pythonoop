@@ -1,4 +1,3 @@
-from tkinter import E
 from typing import Dict, Optional, List
 
 
@@ -41,10 +40,7 @@ class Catalog:
         
 
     def search_by_name(self, name: str) -> Optional[Product]:
-        try:
-             return self.items.get(name.lower())
-        except: 
-            return None
+        return self.__items.get(name.lower(), None)
 
     def get_by_price_range(self, min_price: int, max_price: int) -> List[Dict[str, int | str]]:
         product_list = []
@@ -117,5 +113,4 @@ if __name__ == "__main__":
             min_price = int(lines[1])
             max_price = int(lines[2])
             print(catalog.get_by_price_range(min_price, max_price))
-        else:
-            print("Invalid command")
+ 
