@@ -171,11 +171,7 @@ if __name__ == "__main__":
     c.get_expensive()
     
     # print(c.to_dict())
-    
-    
-    
-    
-    
+
     
     catalog = Catalog()
     while True:
