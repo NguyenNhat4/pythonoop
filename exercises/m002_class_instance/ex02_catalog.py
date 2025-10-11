@@ -1,10 +1,16 @@
 from typing import Dict, Optional, List
-
+import math
 
 class Product:
     def __init__(self, name: str, price: int) -> None:
         # write your code below
         # write your code above
+        try:
+            price = int(price)
+        except:
+            raise ValueError("Price must be an integer")
+        if price <= 0:
+            raise ValueError("Price must be greater than 0")
         
         self._name = name.lower()
         self._price = price
@@ -12,6 +18,8 @@ class Product:
     def to_dict(self) -> Dict[str, int | str]:
         return {"name": self._name, "price": int(self._price)}
 
+    def copy(self) -> 'Product':
+        return Product(self._name, self._price)
 
 class Catalog:
     def __init__(self) -> None:
@@ -75,27 +83,65 @@ class Catalog:
     # - Sản phẩm không tồn tại
     # - Giá mới <= 0
     # """
-    # def remove(self, name: str) -> bool:
-    # """
-    # Xóa sản phẩm khỏi catalog
-    # Return True nếu xóa thành công
-    # Return False nếu sản phẩm không tồn tại
-    # """
-    # def count(self) -> int:
-    # """Đếm tổng số sản phẩm trong catalog"""
-    # def get_all_names(self) -> List[str]:
-    # """
-    # Lấy danh sách tên tất cả sản phẩm
-    # Return: ['hair spray', 'iphone', 'samsung']
-    # """
-    # def get_total_value(self) -> int:
-    # """
-    # Tính tổng giá trị tất cả sản phẩm trong catalog
-    # Ví dụ: có 3 sản phẩm giá 100, 200, 300 → return 600
-    # """
-    # def get_cheapest(self) -> Optional[Product]:
-    # """Tìm sản phẩm rẻ nhất"""
-    # # Gợi ý: dùng min() với key
+    def remove(self, name: str) -> bool:
+        """
+        Xóa sản phẩm khỏi catalog
+        Return True nếu xóa thành công
+        Return False nếu sản phẩm không tồn tại
+        """
+        name = name.lower()
+        product = self.__items.get(name, None)
+        if product is None:
+            return False
+        
+        
+        self.__items.pop(name)
+        return True
+
+    def count(self) -> int:
+        """Đếm tổng số sản phẩm trong catalog"""
+        return len(self.__items)
+
+    
+    def get_all_names(self) -> List[str]:
+        """
+        Lấy danh sách tên tất cả sản phẩm
+        Return: ['hair spray', 'iphone', 'samsung']
+        """
+        return list(self.__items.keys())
+    
+    def get_total_value(self) -> int:
+        """
+        Tính tổng giá trị tất cả sản phẩm trong catalog
+        Ví dụ: có 3 sản phẩm giá 100, 200, 300 → return 600
+        """
+        product_list : List[Product] = list(self.__items.values())
+        
+        total_value = 0
+        
+        for product in product_list:
+            print("current price", product._price)
+            total_value += product._price
+        return total_value
+   
+    
+    
+    
+    def get_cheapest(self) -> Optional[Product]:
+        """Tìm sản phẩm rẻ nhất"""
+        min_price = math.inf
+
+        product_tmp = Product("",0)
+        
+        for product in self.__items.values():
+            if min_price > product._price:
+                min_price = product._price
+                product_tmp = product.copy()
+                
+        return product_tmp   
+    
+    
+    # Gợi ý: dùng min() với key
     
     # def get_most_expensive(self) -> Optional[Product]:
     # """Tìm sản phẩm đắt nhất"""
@@ -111,21 +157,26 @@ if __name__ == "__main__":
     # - Tạo Catalog, đọc dòng lệnh tới EOF, parse và gọi phương thức
     # write your code below
     # write your code above
-    # p1 = Product("Hair Spray",20000)
-    # p2 = Product("Iphone", 600000)
-    # p3 = Product("Samsung", 400000)
-    # p4 = Product("", 400000)
-    # p4 = Product("", 400000)
+    p1 = Product("Hair Spray",20000)
+    p2 = Product("Iphone", 600000)
+    p3 = Product("Samsung", 400000)
+    p4 = Product("a", 400000)
+    p4 = Product("b", 400000)
     
-    # c = Catalog()
-    # c.add(p1)
-    # c.add(p2)
-    # c.add(p3)
-    # c.add(p4)
-    # print(c.get_by_price_range(20000, 600000))
+    c = Catalog()
+    c.add(p1)
+    c.add(p2)
+    c.add(p3)
+    c.add(p4)
+    c.get_expensive()
+    
     # print(c.to_dict())
-    # print (c.to_dict())
-
+    
+    
+    
+    
+    
+    
     catalog = Catalog()
     while True:
         lines = input().strip().split()
