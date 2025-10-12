@@ -3,8 +3,6 @@ import math
 
 class Product:
     def __init__(self, name: str, price: int) -> None:
-        # write your code below
-        # write your code above
         try:
             price = int(price)
         except:
@@ -20,12 +18,66 @@ class Product:
 
     def copy(self) -> 'Product':
         return Product(self._name, self._price)
+    
+    def __repr__(self):
+        return f"Product(name={self._name}, price={self._price})"
+
+
 
 class Catalog:
     def __init__(self) -> None:
         # write your code below
         # write your code above
         self.__items : Dict[str, Product] = {}
+    def printitems(self)-> Dict[str, Product]:
+        print(self.__items)
+        
+    def swap(self,list: list[Product], i, j):
+        a = list[i]
+        list[i] = list[j]
+        list[j] = a
+
+    def sortbytype(self, type: str , sortedtype: str)-> List[Product]: 
+        reverse = False if sortedtype == "asd" else True
+        list_product = list(self.__items.values())
+        if type == "price":
+            list_product.sort(key=lambda x: x._price, reverse=reverse)
+        elif type == "name":
+            list_product = sorted(list_product,key=lambda x: x._name, reverse=reverse)
+        return list_product
+    
+
+    def clone_sorted(self,l: list[Product],key: callable, reverse: bool = False):
+        
+        if not reverse:
+            for i in range(len(l)-1):
+                    maxindex = -1
+                    maxvalue = 'a'
+                    if isinstance(key(l[0]),int):
+                        maxvalue = -99999999999999999
+                        
+                    for j in range(len(l)-i):
+                        print( key(l[j]),maxvalue)
+                        
+                        if maxvalue < key(l[j]) :
+                            maxindex = j
+                            maxvalue = key(l[j])
+                    self.swap(l,maxindex,len(l)-1-i)
+        else:
+            for i in range(len(l)-1):
+                    minindex = len(l)
+                    minvalue = 'z'
+                    if isinstance(key(l[0]),int):
+                        minvalue = 99999999999999999
+                        
+                    for j in range(len(l)-i):
+                        print( key(l[j]),minvalue)
+                        
+                        if minvalue > key(l[j]) :
+                            minindex = j
+                            minvalue = key(l[j])
+                    self.swap(l,minindex,len(l)-1-i)
+                    
 
     def add(self, product: Product) -> None:
         # write your code below
@@ -45,7 +97,7 @@ class Catalog:
             return None
         self.__items[product_name] = product
         
-
+    
     def search_by_name(self, name: str) -> Optional[Product]:
         return self.__items.get(name.lower(), None)
 
@@ -124,8 +176,6 @@ class Catalog:
         return total_value
    
     
-    
-    
     def get_cheapest(self) -> Optional[Product]:
         """
         Tìm sản phẩm rẻ nhất
@@ -164,12 +214,8 @@ if __name__ == "__main__":
     c.add(p2)
     c.add(p3)
     c.add(p4)
-
-    # Test các methods
-    print("Most expensive:", c.get_most_expensive().to_dict() if c.get_most_expensive() else None)
-    print("Cheapest:", c.get_cheapest().to_dict() if c.get_cheapest() else None)
-    # print(c.to_dict())
-
+    print(c.sortbytype("price","ded"))
+    
     
     catalog = Catalog()
     while True:
@@ -192,3 +238,8 @@ if __name__ == "__main__":
             max_price = int(lines[2])
             print(catalog.get_by_price_range(min_price, max_price))
  
+        if command == "sort":
+            print(catalog.sortbytype(lines[1].strip(),lines[2].strip()))
+            
+         
+            
