@@ -75,9 +75,6 @@
 # print(buddy.breed)
 # tại sao cần super()?
 
-
-
-
 ################### 
 
 # Bạn code, học sinh suggest
