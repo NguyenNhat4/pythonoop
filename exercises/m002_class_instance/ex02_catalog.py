@@ -64,7 +64,7 @@ class Catalog:
     def get(self, name: str) -> Optional[Product]:
         # write your code below
         # write your code above
-        return self.items.get(name)
+        return self.__items.get(name.lower())
 
     def to_dict(self) -> Dict[str, Dict[str, int | str]]:
         # write your code below
@@ -120,7 +120,6 @@ class Catalog:
         total_value = 0
         
         for product in product_list:
-            print("current price", product._price)
             total_value += product._price
         return total_value
    
@@ -128,26 +127,23 @@ class Catalog:
     
     
     def get_cheapest(self) -> Optional[Product]:
-        """Tìm sản phẩm rẻ nhất"""
-        min_price = math.inf
-
-        product_tmp = Product("",0)
-        
-        for product in self.__items.values():
-            if min_price > product._price:
-                min_price = product._price
-                product_tmp = product.copy()
-                
-        return product_tmp   
+        """
+        Tìm sản phẩm rẻ nhất
+        Gợi ý: dùng min() với key=lambda p: p._price
+        """
+        if not self.__items:
+            return None
+        return min(self.__items.values(), key=lambda p: p._price)   
     
     
-    # Gợi ý: dùng min() với key
-    
-    # def get_most_expensive(self) -> Optional[Product]:
-    # """Tìm sản phẩm đắt nhất"""
-    # def sort_by_price(self, ascending: bool = True) -> List[Dict[str, int | str]]:
-    # """Sắp xếp sản phẩm theo giá"""
-    # def  sort_by(field: str, ascending: bool = True) -> List[Dict[str, int | str]]:
+    def get_most_expensive(self) -> Optional[Product]:
+        """
+        Tìm sản phẩm đắt nhất
+        Gợi ý: dùng max() với key=lambda p: p._price
+        """
+        if not self.__items:
+            return None
+        return max(self.__items.values(), key=lambda p: p._price)
 
 
 
@@ -168,8 +164,10 @@ if __name__ == "__main__":
     c.add(p2)
     c.add(p3)
     c.add(p4)
-    c.get_expensive()
-    
+
+    # Test các methods
+    print("Most expensive:", c.get_most_expensive().to_dict() if c.get_most_expensive() else None)
+    print("Cheapest:", c.get_cheapest().to_dict() if c.get_cheapest() else None)
     # print(c.to_dict())
 
     
