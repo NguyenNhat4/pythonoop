@@ -60,24 +60,23 @@
         ############################ thêm attributes? ############################
 # class Animal:
 #     def __init__(self, name, age):
-#         self.name = name
-#         self.age = age
+#         self._name = name
+#         self._age = age
 #         print(f"Animal {name} created!")
 
 # class Dog(Animal):
 #     def __init__(self, name, age, breed):
-#         super().__init__(name, age)  # Gọi __init__ của cha
-#         self.breed = breed
+#         # super().__init__(name, age)  # Gọi __init__ của chas
+#         self._breed = breed
 
 # buddy = Dog("Buddy", 3, "Golden Retriever")
 
 
-# print(buddy.breed)
+# print(buddy._name)
 # tại sao cần super()?
 
 ################### 
 
-# Bạn code, học sinh suggest
 # class Vehicle:
 #     pass
 
