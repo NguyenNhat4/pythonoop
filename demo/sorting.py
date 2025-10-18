@@ -12,30 +12,6 @@ class Product:
 
 
 
-def swap(list: list[Product], i, j):
-    a = list[i]
-    list[i] = list[j]
-    list[j] = a
-
-
-
-# def clone_sorted(l: list[Product],key: callable):
-#     for i in range(len(l)-1):
-#         maxindex = -1
-#         maxvalue = 'a'
-#         if isinstance(key(l[0]),int):
-#             maxvalue = -9999
-            
-#         for j in range(len(l)-i):
-#             print( key(l[j]),maxvalue)
-            
-#             if maxvalue < key(l[j]):
-#                 maxindex = j
-#                 maxvalue = key(l[j])
-#         swap(l,maxindex,len(l)-1-i)
-        
-
-
 
 
 products = [
@@ -51,6 +27,9 @@ products = [
 ]
 
 
-products_sort = sorted(products,key=lambda x: x._name)
+products_sort = sorted(products,key=lambda x: x._quantity,reverse=True)
 
 print(products_sort)
+
+
+
