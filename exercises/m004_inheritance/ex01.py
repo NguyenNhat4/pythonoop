@@ -21,5 +21,24 @@ YÊU CẦU:
 
 # VIẾT CODE CỦA BẠN Ở ĐÂY:
 class Student(Person):
-    pass  # TODO: Implement this
+    def __init__(self,name,age,student_id,major):
+        super().__init__(name,age)
+        self.student_id = student_id
+        self.major = major
 
+    def introduce(self):
+        print(f"I am {self.name}, {self.age} years old", f"my student ID is : {self.student_id}, my major is {self.major}.")
+
+
+
+
+a = Person("Huy",16)
+b = Person("Trang",15)
+
+a.introduce()
+b.introduce()
+
+c = Student("Lan",14,"A","student")
+d = Student("Mai",17,"B","student")
+c.introduce()
+d.introduce()

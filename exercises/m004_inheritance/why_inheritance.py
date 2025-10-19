@@ -25,33 +25,42 @@
         
         ############################ Inheritance ############################
         
-# class Animal:  # Parent/Base class
-#     def __init__(self, name, age):
-#         self.name = name
-#         self.age = age
+class Animal:  # Parent/Base class
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
     
-#     def eat(self):
-#         print(f"{self.name} is eating")
+    def eat(self):
+        print(f"{self.name} is eating")
 
 
 
-# class Dog(Animal):  # Child class
-#     def bark(self):
-#         print("Woof!")
+class Dog(Animal):  # Child class
+    def bark(self):
+        print("Woof!")
 
-# class Cat(Animal):
-#     def meow(self):
-#         print("Meow!")
+
+
+class Cat(Animal):
+    def __init__(self,name,age,id):
+        super().__init__(name,age)
+        self.id = id
+    def print_id(self):
+        print(self.id)
+    def meow(self):
+        print("Meow!")
         
-# class Duck(Animal):
-#     def quack(self):
-#         print("Quack!")
+class Duck(Animal):
+    def quack(self):
+        print("Quack!")
         
         
-# c = Cat("Kitty", 3)
-# d = Dog("Buddy", 5)
-# c.eat()
-# d.eat()
+c = Cat("Kitty", 3, 123)
+c.print_id()
+d = Dog("Buddy", 5)
+c.eat()
+d.bark()
+d.eat()
 
 
 
