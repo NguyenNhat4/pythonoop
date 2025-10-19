@@ -22,4 +22,36 @@
 # 3. Tạo ít nhất:
 #    - 2 developers
 #    - 1 manager
-#    - In ra thông tin và lương của từng người
+#    - In ra thông tin và lương của từng ngườia
+
+class Employee:
+    def __init__(self,name,employee_id,base_salary):
+        self.name = name
+        self.employee_id = employee_id
+        self.base_salary = base_salary
+
+    def caculate_salary(self):
+        return self.base_salary
+    
+    def work(self):
+        print(f"{self.name} in working")
+
+
+class Manager:
+    def __init__(self, name, employee_id, base_salary, team_size):
+        self.team_size = team_size
+        super().__init__(name, employee_id, base_salary)
+
+    def caculate_salary(self):
+        return self.base_salary + self.team_size * 500000
+    
+    def work(self):
+        print(f"Managing team of {self.team_size} people.")
+
+a = Manager("Huy", "A", 100000, 200000)
+b = Manager("Linh","B", 80000, 150000)
+
+a.work()
+b.work()
+a.caculate_salary()
+b.caculate_salary()
