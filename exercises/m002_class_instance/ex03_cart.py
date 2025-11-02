@@ -47,7 +47,7 @@ class Cart:
         _items: dict[str, int] lưu tên sản phẩm -> số lượng
         """
         # write your code below
-        _items: Dict[str,int] = {}
+        self._items: Dict[str,int] = {}
         # write your code above
 
     def add(self, product: Product, qty: int) -> None:
@@ -245,23 +245,23 @@ if __name__ == "__main__":
     # Expected: {"milk": 2, "bread": 1}
 
     # Test add existing product
-    # cart.add(Product("Milk", 15000), 1)
-    # print("After adding more milk:", cart.get_items())
+    cart.add(Product("Milk", 15000), 1)
+    print("After adding more milk:", cart.get_items())
     # # Expected: {"milk": 3, "bread": 1}
 
     # Test remove
-    # cart.remove("milk", 1)
-    # print("After removing 1 milk:", cart.get_items())
+    cart.remove("milk", 1)
+    print("After removing 1 milk:", cart.get_items())
     # # Expected: {"milk": 2, "bread": 1}
 
     # Test total
-    # total = cart.total(catalog)
-    # print(f"Total: {total:,}đ")
+    total = cart.total(catalog)
+    print(f"Total: {total:,}đ")
     # # Expected: 15000*2 + 12000*1 = 42000
 
     # Test clear
-    # cart.clear()
-    # print("After clear:", cart.get_items())
+    cart.clear()
+    print("After clear:", cart.get_items())
     # # Expected: {}
 
     # I/O PROCESSING:
