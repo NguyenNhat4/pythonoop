@@ -86,16 +86,33 @@ if __name__ == "__main__":
     # write your code below
     # write your code above
     order = Order()
-    with open("./orderitems.txt","r") as f:
+    with open(r"./orderitems.txt","r") as f:
         list = f.readlines()
-        for i in list[1:]:
-            i = i.strip(" ")
-            name = i[1]
-            price = i[2]
-            quantity = i[3]
-            print("Current price is: ", price)
-            p = Product( name, int(price))
-            order.add_item(p, quantity)
+        for j in list[1:]:
+                value = [0,"",0,0]
+                for i in j.split(" "):
+                    i = i.replace("\n","")
+                 
+                    if i != '':
+                        if value[0] == 1:
+                            value[1] = i.strip()
+                        elif value[0] == 2:
+                            value[2] = int(i)
+                        elif value[0] == 3:
+                            value[3] = int(i)
+                            p = Product(value[1],value[2])
+                            order.add_item(p,value[3])
+                            value = [0,"",0,0]
+                        value[0]+=1
+                        
+                    
+            # print(i[2])
+            # name = i[1]
+            # print(i[3])
+            # quantity = i[3]
+            # print("Current price is: ", price)
+            # p = Product( name, int(price))
+            # order.add_item(p, quantity)
         
-        # print(order.total())
+        print(order.total())
         # print(list[1].split(" ")[1])
