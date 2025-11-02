@@ -47,7 +47,7 @@ class Cart:
         _items: dict[str, int] lưu tên sản phẩm -> số lượng
         """
         # write your code below
-        raise NotImplementedError
+        _items: Dict[str,int] = {}
         # write your code above
 
     def add(self, product: Product, qty: int) -> None:
@@ -75,7 +75,10 @@ class Cart:
             # cart._items = {"milk": 3}
         """
         # write your code below
-        raise NotImplementedError
+        if qty <= 0:
+            return None
+        name = product._name
+        self._items[name] = self._items.get(name,0) + qty
         # write your code above
 
     def remove(self, name: str, qty: int) -> None:
@@ -103,7 +106,17 @@ class Cart:
             cart.remove("Milk", 10) # {} (xóa hết)
         """
         # write your code below
-        raise NotImplementedError
+        if qty <= 0:
+            return None
+        name = name.lower()
+        current_qty = self._items.get(name,0)
+        if current_qty == 0:
+            return None
+        if current_qty <= qty:
+            del self._items[name]
+        else:
+            self._items[name] -= qty
+
         # write your code above
 
     def total(self, catalog: Catalog) -> int:
@@ -136,7 +149,12 @@ class Cart:
             cart.total(catalog) = 15000*2 + 12000*1 = 42000
         """
         # write your code below
-        raise NotImplementedError
+        total = 0
+        for name, qty in self._items.items():
+            product = catalog.search_by_name(name)
+            if product:
+                total = total + product._price * qty
+        return total
         # write your code above
 
     def get_items(self) -> Dict[str, int]:
@@ -150,7 +168,7 @@ class Cart:
         - return self._items.copy()
         """
         # write your code below
-        raise NotImplementedError
+        return self._items.copy()
         # write your code above
 
     def clear(self) -> None:
@@ -161,7 +179,7 @@ class Cart:
         - self._items.clear() hoặc self._items = {}
         """
         # write your code below
-        raise NotImplementedError
+        self._items = {}
         # write your code above
 
 
@@ -221,10 +239,10 @@ if __name__ == "__main__":
     print("=== TEST CART ===")
 
     # Test add
-    # cart.add(Product("Milk", 15000), 2)
-    # cart.add(Product("Bread", 12000), 1)
-    # print("After adding:", cart.get_items())
-    # # Expected: {"milk": 2, "bread": 1}
+    cart.add(Product("Milk", 15000), 2)
+    cart.add(Product("Bread", 12000), 1)
+    print("After adding:", cart.get_items())
+    # Expected: {"milk": 2, "bread": 1}
 
     # Test add existing product
     # cart.add(Product("Milk", 15000), 1)

@@ -9,24 +9,29 @@ from typing import List
 
 class Animal:
     def sound(self) -> str:
-        raise NotImplementedError
+        pass
 
 
 class Dog(Animal):
     def sound(self) -> str:
-        raise NotImplementedError
+        print("Woof")
 
 
 class Cat(Animal):
     def sound(self) -> str:
-        raise NotImplementedError
+        print("Meow")
 
 
 class Duck(Animal):
     def sound(self) -> str:
-        raise NotImplementedError
+        print("quack")
 
-
+tmp_list = [Cat(),Dog(),Duck(),Dog(),Duck()]
 def make_sounds(animals: List[Animal]) -> List[str]:
     """Gọi sound() cho từng animal và trả về list kết quả."""
-    raise NotImplementedError
+    for animal in animals:
+        animal.sound()
+make_sounds(tmp_list)
+    
+a = Animal()
+    
