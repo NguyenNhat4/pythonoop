@@ -10,7 +10,7 @@ order name         price   quantity
 38  Celery          3000    140
 39  Corn            2300    160
 40  Pumpkin         5500    70
-44  Eggplant        3500    130
+44  Eggplant         3500    130
 45  Zucchini        3700    125
 46  Cantaloupe      6000    60
 47  Raspberry       9500    40
