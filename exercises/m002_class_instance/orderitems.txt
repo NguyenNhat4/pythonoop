@@ -17,3 +17,4 @@ order name         price   quantity
 48  Blackberry      9700    38
 49  Avocado         12000   45
 50  Starfruit       7000    55
+50  Sweet Potato Potato Potato      7000    55
