@@ -5,6 +5,7 @@ docker run -d `
   -e POSTGRES_PASSWORD=Strongpassword1234 `
   -e POSTGRES_DB=shopdb `
   -p 5432:5432 `
+  --volume ./postgres-data:/var/lib/postgresql/data `
   postgres
 
 # truy cập database trong container 

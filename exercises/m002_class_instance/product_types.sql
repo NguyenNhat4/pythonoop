@@ -6,3 +6,7 @@ VALUES
     ('DAIRY_EGGS'),
     ('MEAT_SEAFOOD');
 
+INSERT INTO products_type (name)
+VALUES
+    ('');
+   
