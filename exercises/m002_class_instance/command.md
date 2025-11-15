@@ -10,3 +10,5 @@ docker run -d `
 # truy cập database trong container 
 
 docker exec -it mypostgres psql -U postgres -d shopdb
+
+
