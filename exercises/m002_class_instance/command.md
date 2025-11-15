@@ -12,3 +12,9 @@ docker run -d `
 docker exec -it mypostgres psql -U postgres -d shopdb
 
 
+VEGETABLES (Rau củ) - root vegetables, leafy greens, cruciferous
+FRUITS (Trái cây) - berries, tropical fruits, melons
+GRAINS_LEGUMES (Ngũ cốc & đậu) - rice, beans, lentils, wheat products
+DAIRY_EGGS (Sữa & trứng) - milk products, cheese, eggs
+MEAT_SEAFOOD (Thịt & hải sản) - poultry, red meat, fish, shellfish
+ 
