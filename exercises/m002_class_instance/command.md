@@ -10,7 +10,7 @@ docker run -d `
 
 # truy cập database trong container 
 
-docker exec -it mypostgres psql -U postgres -d shopdb
+docker exec -it mypostgresDBContainer psql -U postgres -d shopdb
 
 
 VEGETABLES (Rau củ) - root vegetables, leafy greens, cruciferous

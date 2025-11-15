@@ -12,7 +12,7 @@ CREATE TABLE products (
 );
 
 
-INSERT INTO products_type (name)
+INSERT INTO product_types (name)
 VALUES
     ('VEGETABLES'),
     ('FRUITS'),
