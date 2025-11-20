@@ -40,4 +40,5 @@ prompt = build_prompt(prompt)
 yaml_str = call_llm(prompt).split("```yaml")[1].split("```")[0].strip()
 result = yaml.safe_load(yaml_str)
 
-print(result)
+with open('result.txt','w') as f:
+    f.write(result)
