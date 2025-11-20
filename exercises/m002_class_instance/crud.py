@@ -1,6 +1,6 @@
-from sqlalchemy import create_engine, Integer, String, select, update, delete
-from sqlalchemy.orm import declarative_base, mapped_column, Mapped, Session
-from typing import Optional, Dict
+from sqlalchemy import create_engine, Integer, String, select, update, delete, ForeignKey
+from sqlalchemy.orm import declarative_base, mapped_column, Mapped, Session, relationship
+from typing import Optional, Dict, List
 
 
 DB_URL = "postgresql+psycopg://postgres:Strongpassword1234@localhost:5432/shopdb"
@@ -22,6 +22,7 @@ class Product(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     price: Mapped[int] = mapped_column(Integer, nullable=False)
+    type_of_products: Mapped[List["ProductType"]] = relationship(lazy = "selectin")
     extend_existing =True
     def __repr__(self) ->str: 
         return f"Product(id={self.id!r}) ,  name={self.name!r}, price={self.price!r})"
@@ -29,6 +30,17 @@ class Product(Base):
         return {"name": self.name, "price": int(self.price)}
 
 
+class ProductType(Base):
+    __tablename__ = "product_types"
+    __table_args__ = {"extend_existing":True }
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    extend_existing =True
+    def __repr__(self) ->str: 
+        return f"Product(id={self.id!r}) ,  name={self.name!r})"
+    def to_dict(self) -> Dict[str, int | str]:
+        return {"name": self.name, "id": self.id}
+    products_id: Mapped[int] = mapped_column(ForeignKey("products_id"))
 
 def create_product(name: str, price: int):
     with Session(engine) as s:
