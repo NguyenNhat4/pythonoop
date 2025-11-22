@@ -1,6 +1,9 @@
 from google import genai
+from dotenv import load_dotenv
+import os
+load_dotenv
 
-client = genai.Client(api_key="AIzaSyDcMfVWbRbt-dYkQpCQ2DmQXVue_iXlhdk")
+client = genai.Client(api_key="AIzaSyDbMWa2VOLfeI0Q3fnAWaQa9mR-YYpSRgQ")
 
 def call_llm(prompt):
 
@@ -38,7 +41,6 @@ prompt = build_prompt(prompt)
 
 
 yaml_str = call_llm(prompt).split("```yaml")[1].split("```")[0].strip()
-result = yaml.safe_load(yaml_str)
 
 with open('result.txt','w') as f:
-    f.write(result)
+    f.write(yaml_str)
