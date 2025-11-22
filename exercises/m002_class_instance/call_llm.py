@@ -3,7 +3,9 @@ from dotenv import load_dotenv
 import os
 load_dotenv
 
-client = genai.Client(api_key="AIzaSyDbMWa2VOLfeI0Q3fnAWaQa9mR-YYpSRgQ")
+
+client = genai.Client(api_key=os.getenv("key"))
+
 
 def call_llm(prompt):
 
@@ -26,16 +28,17 @@ def build_prompt(text):
     - MEAT_SEAFOOD
     Example:
     ```yaml
-    types: [MEAT_SEAFOOD,MEAT_SEAFOODVEGETABLES,GRAINS_LEGUMES,GRAINS_LEGUMES ]
+    types: [MEAT_SEAFOOD,MEAT_SEAFOOD,VEGETABLES,GRAINS_LEGUMES,GRAINS_LEGUMES ]
     ```
-    
-    
     trả về chinh xac câu trúc YML như trên:
     """
 import yaml  
-prompt = ""
+
 with open('./orderitems.txt','r') as f:
     prompt = f.readlines()
+
+print(prompt)
+
 prompt = build_prompt(prompt)
 
 
