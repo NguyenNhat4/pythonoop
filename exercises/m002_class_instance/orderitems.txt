@@ -24,7 +24,6 @@ product_id  name              price   quantity
 23          Radish            2100    150
 24          Turnip            2400    120
 25          Mushroom          5500    85
-
 26          Apple             4500    200
 27          Banana            2500    280
 28          Orange            3500    190

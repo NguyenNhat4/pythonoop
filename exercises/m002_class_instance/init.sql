@@ -7,6 +7,7 @@ CREATE TABLE products (
     id        SERIAL PRIMARY KEY,
     name      VARCHAR(100) NOT NULL,
     price     INTEGER NOT NULL,
+    quantity  INTEGER NOT NULL,
     type_id   INTEGER NOT NULL,
     FOREIGN KEY (type_id) REFERENCES product_types(id)
 );

@@ -22,11 +22,13 @@ class Product(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     price: Mapped[int] = mapped_column(Integer, nullable=False)
+    quantity: Mapped[int] = mapped_column(Integer, nullable=False)
     type_id: Mapped[int] = mapped_column(ForeignKey("product_types.id"))
     product_type: Mapped["ProductType"] = relationship(back_populates="products")
     extend_existing =True
     def __repr__(self) ->str: 
         return f"Product(id={self.id!r}) ,  name={self.name!r}, price={self.price!r})"
+
 
 class ProductType(Base):
     __tablename__ = "product_types"
@@ -34,7 +36,7 @@ class ProductType(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     products: Mapped[List["Product"]] = relationship(
-    back_populates="product_type",  
+    back_populates="product_types",  
     lazy="selectin",  
     cascade="all, delete-orphan"
     
@@ -45,6 +47,7 @@ class ProductType(Base):
     def to_dict(self) -> Dict[str, int | str]:
         return {"name": self.name, "id": self.id}
 
+ 
 
 def get_list_products():
     with Session(engine) as s:
@@ -58,3 +61,7 @@ def delete_product(product_id: int) -> int:
     with Session(engine) as s:
         result = s.execute(delete(Product).where(Product.id == product_id))
         s.commit()
+        
+def get_list_productTypes():
+        with Session(engine) as s:
+            return [ p for p in s.scalars( select(ProductType)) ]
