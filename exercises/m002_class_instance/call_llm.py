@@ -20,30 +20,26 @@ def build_prompt(text):
     
     phân loại các sản phẩm trong List sau: 
     {text}
-    này thành một danh sách tương ứng , thuộc các loại như sau:
-    - VEGETABLES
-    - FRUITS
-    - GRAINS_LEGUMES
-    - DAIRY_EGGS
-    - MEAT_SEAFOOD
-    Example:
+    này thành một danh sách tương ứng , thuộc type_id như sau:
+    - 1.VEGETABLES
+    - 2.FRUITS
+    - 3.GRAINS_LEGUMES
+    - 4.DAIRY_EGGS
+    - 5.MEAT_SEAFOOD
+    format:
     ```yaml
-    types: [MEAT_SEAFOOD,MEAT_SEAFOOD,VEGETABLES,GRAINS_LEGUMES,GRAINS_LEGUMES ]
+    prouduct_id: type_id
     ```
+    example :
+    ```yaml
+    1:2
+    2:1
+    3:5
+    4:5
+    5:5
+    6:2
+    7:1
+    ```
+    
     trả về chinh xac câu trúc YML như trên:
     """
-import yaml  
-
-with open('./orderitems.txt','r') as f:
-    prompt = f.readlines()
-
-print(prompt)
-
-prompt = build_prompt(prompt)
-
-
-
-yaml_str = call_llm(prompt).split("```yaml")[1].split("```")[0].strip()
-
-with open('result.txt','w') as f:
-    f.write(yaml_str)

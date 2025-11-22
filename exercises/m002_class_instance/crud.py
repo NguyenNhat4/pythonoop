@@ -36,7 +36,7 @@ class ProductType(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     products: Mapped[List["Product"]] = relationship(
-    back_populates="product_types",  
+    back_populates="product_type",  
     lazy="selectin",  
     cascade="all, delete-orphan"
     
@@ -65,3 +65,17 @@ def delete_product(product_id: int) -> int:
 def get_list_productTypes():
         with Session(engine) as s:
             return [ p for p in s.scalars( select(ProductType)) ]
+
+
+def insert_one_product(p : Product):
+    with Session(engine) as session:
+        session.add(p)
+        session.commit()
+
+def insert_list_products(list: List[Product]):
+    with Session(engine) as session:
+        session.add_all(list)
+        session.commit()
+        
+        
+        
