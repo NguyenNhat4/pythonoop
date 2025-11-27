@@ -19,11 +19,11 @@ def init_schema():
 class Product(Base):
     __tablename__ = "products"
     __table_args__ = {"extend_existing":True }
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    id: Mapped[str] = mapped_column(String(20), primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     price: Mapped[int] = mapped_column(Integer, nullable=False)
     quantity: Mapped[int] = mapped_column(Integer, nullable=False)
-    type_id: Mapped[int] = mapped_column(ForeignKey("product_types.id"))
+    type_id: Mapped[str] = mapped_column(ForeignKey("product_types.id"))
     product_type: Mapped["ProductType"] = relationship(back_populates="products")
     extend_existing =True
     def __repr__(self) ->str: 
@@ -33,7 +33,7 @@ class Product(Base):
 class ProductType(Base):
     __tablename__ = "product_types"
     __table_args__ = {"extend_existing":True }
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    id: Mapped[str] = mapped_column(String(4), primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     products: Mapped[List["Product"]] = relationship(
     back_populates="product_type",  
