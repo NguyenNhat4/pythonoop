@@ -79,21 +79,6 @@ class Order:
         # write your code above
     
 
-def clean_one_row(one_line):
-    one_line = one_line.split()
-    clean_row = []
-    name = ""
-    for element in one_line:
-        if element.isnumeric():
-            clean_row.append(int(element))
-        else:
-            name = name + " "  + element
-            
-    name = name.strip()
-    clean_row.insert(1, name)
-    return clean_row
-
-
 if __name__ == "__main__":
     # Tự viết main theo yêu cầu I/O bên trên.
     # Gợi ý:
