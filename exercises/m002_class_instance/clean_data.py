@@ -3,7 +3,7 @@ import os
 
 
 
-FILE_PATH = 
+FILE_PATH : str = '' 
 
 
  
