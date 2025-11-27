@@ -7,7 +7,7 @@ FILE_PATH =
 
 
  
-def convert_string_to_list(one_line: str ) ->List[str]: 
+def convert_string_to_list(one_line: str , seperate_by: str = None) ->List[str]: 
     pass
 #     """
     
