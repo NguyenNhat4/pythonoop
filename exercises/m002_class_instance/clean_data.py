@@ -1,4 +1,4 @@
-from typing import List
+from typing import List,Dict
 import os 
 
 from config import FILE_PATH
@@ -29,8 +29,36 @@ def convert_string_to_list(one_line: str , seperate_by: str = None) ->List[str]:
     # name = name.strip()
     # clean_row.insert(1, name)
     # return clean_row
-    return [x.strip() for x in one_row.split(seperate_by)]
+    return [x.strip() for x in one_line.split(seperate_by)]
 
+def convert_list_to_dict (rows: List[List[str]]) -> Dict[str,str]:
+    """
+    input
+    ['FP001','Gao thom ST25','18000','120']
+    output
+    {
+        'product_id': 'FP001'
+        'name': 'Gao thom ST25'
+        'price':'18000'
+        'quantity': '120'
+    }
+    
+    """
+    try:
+        if not len(rows) == 4:
+            raise IndexError("Mảng phải đủ 4 phần tử")
+
+        return {
+
+            'product_id' : rows[0],
+            'name': rows[1],
+            'price': rows[2],
+            'quantity': rows[3]
+
+                }
+    except Exception as e:
+        print(rows)
+        print(e)
 
 if __name__ == '__main__':
     # convert_string_to_list(FILE_PATH)
@@ -38,13 +66,15 @@ if __name__ == '__main__':
         with open(FILE_PATH,'r') as f :
             data_rows = f.readlines()
         one_row = data_rows[2]
-        print(convert_string_to_list(one_row,','))
         clean_list = []
-        for i in data_rows:
-            if i
-            print(i)     
+        for idx, value in enumerate(data_rows):
+            if value.strip() == '':
+                continue
+            clean_list.append(convert_string_to_list(value,','))
+        
+        a = convert_list_to_dict(['EL036', 'Op lung dien thoai', '6'])
         # print(one_row)
         # loop through each row and turn it into a list of string.  
-        
+        print(a)
     else: 
         print("file dont exist")
