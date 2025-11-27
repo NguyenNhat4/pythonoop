@@ -19,3 +19,9 @@ GRAINS_LEGUMES (Ngũ cốc & đậu) - rice, beans, lentils, wheat products
 DAIRY_EGGS (Sữa & trứng) - milk products, cheese, eggs
 MEAT_SEAFOOD (Thịt & hải sản) - poultry, red meat, fish, shellfish
  
+
+FP = thuc pham
+DR = do uong
+HG = do gia dung
+EL = thiet bi dien tu
+CS = my pham
