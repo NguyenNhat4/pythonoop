@@ -57,8 +57,7 @@ def convert_list_to_dict (rows: List[List[str]]) -> Dict[str,str]:
 
                 }
     except Exception as e:
-        print(rows)
-        print(e)
+        print(e,rows)
 
 if __name__ == '__main__':
     # convert_string_to_list(FILE_PATH)
@@ -66,15 +65,14 @@ if __name__ == '__main__':
         with open(FILE_PATH,'r') as f :
             data_rows = f.readlines()
         one_row = data_rows[2]
-        clean_list = []
+        clean_data= []
         for idx, value in enumerate(data_rows):
             if value.strip() == '':
                 continue
-            clean_list.append(convert_string_to_list(value,','))
-        
-        a = convert_list_to_dict(['EL036', 'Op lung dien thoai', '6'])
+            clean_rows = convert_string_to_list(value,',')
+            clean_data = convert_list_to_dict(clean_rows)
+            print(clean_data)
         # print(one_row)
         # loop through each row and turn it into a list of string.  
-        print(a)
     else: 
         print("file dont exist")
